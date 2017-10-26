@@ -1,3 +1,25 @@
-<p>
-  contacts works!
-</p>
+<ul class="list-group" id="contact-list" *ngFor='let key of keysOfContact; let i = index'>
+  <li class="list-group-item list-group-item-action">
+    <div class="row w-100">
+      <div class="col-12 col-sm-3 col-md-3 px-0">
+        <img class="rounded-circle mx-auto d-block img-fluid" src="{{contacts[key].picture.thumbnail}}" alt="{{contacts[key].name.title}}. {{contacts[key].name.first}} {{contacts[key].name.last}}" />        
+      </div>
+      <div class="col-12 col-sm-9 col-md-9 text-center text-sm-left">
+        <span class="">{{contacts[key].name.title}}. {{contacts[key].name.first}} {{contacts[key].name.last}}</span>
+        <br/>
+        <!-- <span class="">
+          <span class="text-muted">5842 Hillcrest Rd</span>
+          <br/>
+        </span> -->
+        <span class="">
+          <span class="text-muted">{{contacts[key].phone}}</span>
+          <br/>
+        </span>
+        <span class="">
+          <span class="text-muted">{{contacts[key].email}}</span>
+          <br/>
+        </span>
+      </div>
+    </div>
+  </li>
+</ul>
