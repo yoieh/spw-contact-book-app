@@ -1,22 +1,50 @@
-<ul class="list-group" id="contact-list" *ngFor='let key of keysOfContact; let i = index'>
+<div class="input-group">
+
+  <div class="input-group-btn" dropdown>
+    <button dropdownToggle type="button" class="btn btn-secondary dropdown-toggle clickable" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Order by
+      <span class="caret"></span>
+    </button>
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <!-- if sortby is 'firsname' the sorting arrows will chance betwen up and down -->
+        <span class="dropdown-item clickable" (click)="sort('first')">First Name
+          <i class="clickable fa" [ngClass]="sortBy != 'first' ? 'fa-sort' : (sortBy == 'first' && !isDesc ? 'fa-sort-asc' : 'fa-sort-desc' )"
+            aria-hidden="true"> </i>
+        </span>
+      </li>
+      <li role="menuitem">
+        <!-- if sortby is 'lastName' the sorting arrows will chance betwen up and down -->
+        <span class="dropdown-item clickable" (click)="sort('last')">Last Name
+          <i class="clickable fa" [ngClass]="sortBy != 'last' ? 'fa-sort' : (sortBy == 'last' && !isDesc ? 'fa-sort-asc' : 'fa-sort-desc' )"
+            aria-hidden="true"> </i>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <input #search type="search" class="form-control" [(ngModel)]="query" placeholder="Search for..." aria-label="Search for...">
+  <span class="input-group-btn">
+    <button class="btn btn-secondary clickable" type="button">Search</button>
+  </span>
+</div>
+<!-- Listing contacts by search pipe sorting by name pipe -->
+<ul class="list-group clickable" id="contact-list" *ngFor="let contact of (contacts | searchContacts: search.value | orderByName: sortBy : direction); let i = index">
   <li class="list-group-item list-group-item-action">
     <div class="row w-100">
       <div class="col-12 col-sm-3 col-md-3 px-0">
-        <img class="rounded-circle mx-auto d-block img-fluid" src="{{contacts[key].picture.thumbnail}}" alt="{{contacts[key].name.title}}. {{contacts[key].name.first}} {{contacts[key].name.last}}" />        
+        <img class="rounded-circle mx-auto d-block img-fluid" src="{{contact.picture.thumbnail}}" alt="{{contact.name.title}}. {{contact.name.first}} {{contact.name.last}}"
+        />
       </div>
       <div class="col-12 col-sm-9 col-md-9 text-center text-sm-left">
-        <span class="">{{contacts[key].name.title}}. {{contacts[key].name.first}} {{contacts[key].name.last}}</span>
+        <span class="">{{contact.name.title}}. {{contact.name.first | capitalize}} {{contact.name.last | capitalize}}</span>
         <br/>
-        <!-- <span class="">
-          <span class="text-muted">5842 Hillcrest Rd</span>
-          <br/>
-        </span> -->
         <span class="">
-          <span class="text-muted">{{contacts[key].phone}}</span>
+          <span class="text-muted">{{contact.phone}}</span>
           <br/>
         </span>
         <span class="">
-          <span class="text-muted">{{contacts[key].email}}</span>
+          <span class="text-muted">{{contact.email}}</span>
           <br/>
         </span>
       </div>
