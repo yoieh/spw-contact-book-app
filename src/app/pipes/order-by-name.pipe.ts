@@ -9,8 +9,8 @@ import {
 @Pipe({
   name: 'orderByName'
 })
+// Order contacts list by previded orderby and direction
 export class OrderByNamePipe implements PipeTransform {
-
   public transform(items: Contact[], orderby: string, direction: number): any {
     if (!items) {
       return items;

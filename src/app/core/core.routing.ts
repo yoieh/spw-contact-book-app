@@ -8,8 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Routs array
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/contacts', pathMatch: 'full' },
   { path: 'contacts', component: ContactsComponent },
   { path: 'contacts/:id', component: ContactComponent }
 ];

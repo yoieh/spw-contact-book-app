@@ -10,12 +10,13 @@ import {
 @Pipe({
   name: 'searchContacts'
 })
+
+// Sorting list of contacts by previded term
 export class SearchContactsPipe implements PipeTransform {
   public transform(items: Contact[], term: any): any {
     if (!items) {
       return items;
     }
-
     return items.filter(item => {
       if (item.name.first.startsWith(term) ||
         item.name.last.startsWith(term) ||
