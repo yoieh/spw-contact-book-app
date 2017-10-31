@@ -1,7 +1,7 @@
-<div class="input-group">
+<div class="input-group mb-3">
 
   <div class="input-group-btn" dropdown>
-    <button dropdownToggle type="button" class="btn btn-secondary dropdown-toggle clickable" data-toggle="dropdown" aria-haspopup="true"
+    <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle clickable" data-toggle="dropdown" aria-haspopup="true"
       aria-expanded="false">
       Order by
       <span class="caret"></span>
@@ -24,26 +24,31 @@
     </ul>
   </div>
   <input #search type="search" class="form-control" [(ngModel)]="query" placeholder="Search for..." aria-label="Search for...">
+  <!-- Just for visual it dose not search when clicked on -->
   <span class="input-group-btn">
-    <button class="btn btn-secondary clickable" type="button">Search</button>
+    <button class="btn btn-primary clickable" type="button">Search</button>
   </span>
 </div>
 <!-- Listing contacts by search pipe sorting by name pipe -->
-<ul class="list-group clickable" id="contact-list" *ngFor="let contact of (contacts | searchContacts: search.value | orderByName: sortBy : direction); let i = index">
+<ul class="list-group clickable mb-2" id="contact-list" *ngFor="let contact of (contacts | searchContacts: search.value | orderByName: sortBy : direction)"
+  routerLink="/contacts/{{contact.id.value}}">
   <li class="list-group-item list-group-item-action">
     <div class="row w-100">
       <div class="col-12 col-sm-3 col-md-3 px-0">
-        <img class="rounded-circle mx-auto d-block img-fluid" src="{{contact.picture.thumbnail}}" alt="{{contact.name.title}}. {{contact.name.first}} {{contact.name.last}}"
+        <img class="rounded-circle mx-auto d-block img-fluid" src="{{contact.picture.medium}}" alt="{{contact.name.title}}. {{contact.name.first}} {{contact.name.last}}"
         />
       </div>
       <div class="col-12 col-sm-9 col-md-9 text-center text-sm-left">
+        <i class="fa fa-user text-danger" aria-hidden="true"></i>
         <span class="">{{contact.name.title}}. {{contact.name.first | capitalize}} {{contact.name.last | capitalize}}</span>
         <br/>
         <span class="">
+          <i class="fa fa-phone text-success" aria-hidden="true"></i>
           <span class="text-muted">{{contact.phone}}</span>
           <br/>
         </span>
         <span class="">
+          <i class="fa fa-envelope text-primary" aria-hidden="true"></i>
           <span class="text-muted">{{contact.email}}</span>
           <br/>
         </span>

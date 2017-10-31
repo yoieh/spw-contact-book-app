@@ -1,3 +1,4 @@
+// This is a teardown of the types of the responce from api
 export interface Name {
   title: string;
   first: string;
@@ -28,6 +29,7 @@ export interface Contact {
   location: Location;
   email: string;
   phone: string;
+  cell: string;
   picture: Picture;
   gender: string;
 }

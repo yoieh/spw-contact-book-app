@@ -11,9 +11,6 @@ import {
   Contact,
   ContactResults
 } from '../../interfaces/contact';
-import {
-  OrderByNamePipe
-} from './../../pipes/order-by-name.pipe';
 
 @Component({
   selector: 'app-contacts',
@@ -26,11 +23,13 @@ export class ContactsComponent implements OnInit {
   public sortBy: string;    // FirstName or LastName
 
   @Input() contacts: Contact[];
-  constructor(private contactService: ContactService) {}
-
-  ngOnInit() {
+  constructor(private contactService: ContactService) {
+    // setting default vars
     this.isDesc = false;
     this.sortBy = 'last';
+  }
+
+  ngOnInit() {
     this.list().then(contacts => {});
   }
 
@@ -47,10 +46,5 @@ export class ContactsComponent implements OnInit {
     this.isDesc = !this.isDesc; // change the direction
     this.sortBy = property;
     this.direction = this.isDesc ? 1 : -1;
-  }
-
-  // Query search from search box
-  search(q: any) {
-    this.contacts = this.contacts.filter(contact => contact.name.first.startsWith(q));
   }
 }

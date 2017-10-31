@@ -1,3 +1,73 @@
-<p>
-  contact works!
-</p>
+<div class="card row bg-light">
+  <div class="col-9 col-sm-6 col-md-3 align-self-center">
+    <img class="card-img-top rounded-circle" src="{{contact?.picture.large}}" alt="{{contact?.name.title}}. {{contact?.name.first}} {{contact?.name.last}}">
+  </div>
+  <h3 class="card-title mx-auto">{{contact?.name.title | capitalize}}. {{contact?.name.first | capitalize}} {{contact?.name.last | capitalize}}
+    <i class="fa" [ngClass]="contact?.gender == 'female' ? 'fa-venus text-danger' : (contact?.gender == 'male' ? 'fa-mars text-primary' : '')"
+      aria-hidden="true"></i>
+  </h3>
+  <hr>
+
+  <!-- Displays contact info of contact -->
+  <div class="card-body">
+    <div class="card-text row container">
+      <div class="col-12 col-lg-6">
+        <div class="card mb-3">
+          <div class="card-header bg-primary text-white pb-1">
+            <h4>Contact</h4>
+          </div>
+          <div class="container p-3">
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">Phone:</b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                <i class="fa fa-phone text-success" aria-hidden="true"></i>
+                {{contact?.phone}}</span>
+            </li>
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">Cell:</b>
+              <span class="col-sm-12  col-md-8 col-lg-9">
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+                {{contact?.cell}}</span>
+            </li>
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">Email:</b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                <i class="fa fa-envelope text-primary" aria-hidden="true"></i>
+                {{contact?.email}}</span>
+            </li>
+          </div>
+        </div>
+      </div>
+      <!-- Displays addess of contact -->
+      <div class="col-12 col-lg-6">
+        <div class="card mb-3">
+          <div class="card-header bg-primary text-white pb-1">
+            <h4>Address</h4>
+          </div>
+          <div class="container p-3">
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">Street: </b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                {{contact?.location.street | capitalize}}</span>
+            </li>
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">City: </b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                {{contact?.location.city | capitalize}}</span>
+            </li>
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">State: </b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                {{contact?.location.state | capitalize}}</span>
+            </li>
+            <li class="row">
+              <b class="d-none d-md-block col-md-4 col-lg-3">Postcode: </b>
+              <span class="col-sm-12 col-md-8 col-lg-9">
+                {{contact?.location.postcode}}</span>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
