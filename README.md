@@ -1,27 +1,31 @@
-# FrontendTestApp
+# To run app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+Make sure that you have installed [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm?utm_source=house&utm_medium=homepage&utm_campaign=free%20orgs&utm_term=Install%20npm) or [yarn](https://yarnpkg.com/en/docs/install) for your system.
 
-## Development server
+I have tested this on windows 10 with
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* node -v v8.2.1
+* npm -v 5.5.1
+* yarn -v 1.2.1
 
-## Code scaffolding
+With npm:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+$ `npm install`
 
-## Build
+$ `npm start`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+With yarn:
 
-## Running unit tests
+$ `yarn install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+$ `yarn start`
 
-## Running end-to-end tests
+I havent got time to get karma to work with me in this project for some reason.. This mean that there are no working unit test and:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+$ `npm test`
 
-## Further help
+dose not work.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Did not get e2e or lint to work ether.
+
+I didn't feel like that i should spend more time troubleshooting this issus for now.
