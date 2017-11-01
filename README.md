@@ -4,7 +4,7 @@ Make sure that you have installed [node](https://nodejs.org/en/download/) and [n
 
 I have tested this on windows 10 with
 
-* node -v v8.2.1
+* node -v v8.2.1 and v8.9.0
 * npm -v 5.5.1
 * yarn -v 1.2.1
 
@@ -19,6 +19,9 @@ With yarn:
 $ `yarn install`
 
 $ `yarn start`
+
+## This is to an open issue with karma!
+(https://github.com/karma-runner/karma/issues/2735)
 
 I havent got time to get karma to work with me in this project for some reason.. This mean that there are no working unit test and:
 
